@@ -23,3 +23,14 @@ void agregarLibro() {
     cantidad++;
 }
 
+void mostrarLibros() {
+    if (cantidad == 0) {
+        cout << "No hay libros registrados.\n";
+        return;
+    }
+
+    cout << "\nLibros registrados:\n";
+    for (int i = 0; i < cantidad; i++) {
+        cout << i + 1 << ". " << titulos[i] << " - " << autores[i] << endl;
+    }
+}
