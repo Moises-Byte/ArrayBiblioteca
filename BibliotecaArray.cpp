@@ -34,3 +34,17 @@ void mostrarLibros() {
         cout << i + 1 << ". " << titulos[i] << " - " << autores[i] << endl;
     }
 }
+
+void mostrarLibroPorPosicion() {
+    int posicion;
+    cout << "Ingrese la posicion del libro que desea ver (1 a " << cantidad << "): ";
+    cin >> posicion;
+
+    if (posicion < 1 || posicion > cantidad) {
+        cout << "Posicion inválida.\n";
+        return;
+    }
+
+    cout << "Libro en la posicion " << posicion << ": " << titulos[posicion - 1] << " - " << autores[posicion - 1] << endl;
+}
+
