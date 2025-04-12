@@ -1,6 +1,8 @@
 #include <iostream>
 #include <array>
 #include <string>
+#include <fstream> 
+
 using namespace std;
 
 const int MAX = 10;
@@ -48,6 +50,22 @@ void mostrarLibroPorPosicion() {
     cout << "Libro en la posicion " << posicion << ": " << titulos[posicion - 1] << " - " << autores[posicion - 1] << endl;
 }
 
+void guardarHistorialEnArchivo() {
+    ofstream archivo("C:\\Users\\Moises\\Desktop\\Arrays2\\historial_libros.txt");
+
+    if (!archivo) {
+        cout << "Error al crear el archivo. Verifique si la carpeta existe y tiene permisos adecuados.\n";
+        return;
+    }
+
+    archivo << "Historial de libros agregados:\n";
+    for (int i = 0; i < cantidad; i++) {
+        archivo << i + 1 << ". " << titulos[i] << " - " << autores[i] << "\n";
+    }
+
+    archivo.close();
+}
+
 int main() {
     int opcion;
 
@@ -72,7 +90,7 @@ int main() {
 
     } while (opcion != 0);
 
+    guardarHistorialEnArchivo();
     cout << "Programa finalizado.\n";
     return 0;
 }
-
